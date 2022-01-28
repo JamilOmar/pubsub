@@ -1,11 +1,5 @@
 import { injectable } from 'inversify';
-
-interface IUser {
-  email: string;
-  name: string;
-  _id?: string;
-}
-
+import { IUser } from '../interfaces';
 @injectable()
 export class User implements IUser {
   constructor(
