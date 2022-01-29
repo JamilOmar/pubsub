@@ -22,6 +22,5 @@ export const bindings = new AsyncContainerModule(async (bind) => {
     bind<IWritterStrategy>(TYPES.WritterStrategy).to(ConsoleStrategy).inSingletonScope();
     bind<WritterService>(TYPES.WritterService).to(WritterService).inSingletonScope();
     bind<ITransformerStrategy>(TYPES.TransformerStrategy).to(UserStrategy).inSingletonScope();
-
     bind<TransformerService>(TYPES.TransformerService).to(TransformerService).inSingletonScope();
 });
