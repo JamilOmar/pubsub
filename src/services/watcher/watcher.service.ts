@@ -17,5 +17,5 @@ export class WatcherService extends EventEmitter{
        this.watcher
        .on('add', (path: string, stats: string) => { 
         this.emit('onAdded' ,{path , source:this.opt.source})
-    }
+    })}
 }
