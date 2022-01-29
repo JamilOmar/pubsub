@@ -7,12 +7,12 @@ const CHANNEL = 'pub-sub-demo';
 export class BusService extends EventEmitter {
   publisher: any;
   consumer: any;
-  constructor() {
+  constructor(private opt = {url: ''}) {
     super();
   }
 
   async bootstrap() {
-    this.publisher = createClient();
+    this.publisher = createClient(this.opt);
     this.consumer = this.publisher.duplicate();
     this.publisher.on('error', err => console.log('Redis Publisher Client Error', err));
     this.consumer.on('error', err => console.log('Redis Consumer Client Error', err));

@@ -15,10 +15,16 @@
     "prettier:check": "npm run prettier -- -l",
     "prettier:cli": "npm run prettier -- -c",
     "prettier:fix": "npm run prettier:cli -- --write",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:test": "docker-compose -f docker-compose-test.yml",
+    "docker:test:up": "npm run docker:test -- up -d",
+    "docker:test:down": "npm run docker:test -- down",
+    "docker": "docker-compose -f docker-compose.yml",
+    "docker:up": "npm run docker -- up",
+    "docker:down": "npm run docker -- down"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Jamil Falconi",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^17.0.13",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
@@ -28,6 +34,7 @@
   },
   "dependencies": {
     "chokidar": "^3.5.3",
+    "dotenv": "^8.6.0",
     "inversify": "^6.0.1",
     "inversify-binding-decorators": "^4.0.0",
     "mongodb": "^3.7.3",

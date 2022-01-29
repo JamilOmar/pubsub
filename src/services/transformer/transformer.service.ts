@@ -11,6 +11,7 @@ import {WatcherService} from '../watcher';
 @injectable()
 export class TransformerService {
   constructor(
+    @inject(TYPES.Config) private readonly config: any,
     @inject(TYPES.UserRepository) private readonly userRepository: Repository<User>,
     @inject(TYPES.TransformerStrategy) private transformStrategy: ITransformerStrategy,
     @inject(TYPES.BusService) private busService: BusService,
@@ -33,8 +34,8 @@ export class TransformerService {
     this.watcherService.on('onAdded', async data => {
       const source = data.source;
       const path = data.path;
-      const destination = './output/logs';
-      const cwd = process.cwd();
+      const destination = this.config.listener.destination;
+      const cwd = this.config.listener.cwd;
       const finalSourcePath = FileUtils.mergePath(cwd, source, FileUtils.getBaseName(path));
       const finalDestinationPath = FileUtils.mergePath(cwd, destination, FileUtils.getBaseName(path));
       const json = require(finalSourcePath);

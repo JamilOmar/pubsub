@@ -1,0 +1,10 @@
+version: '3'
+services:
+  pub-sub-database-test:
+    image: mongo
+    ports:
+      - 27017:27017
+  pub-sub-cache-test:
+    image: redis
+    ports:
+      - 6379:6379

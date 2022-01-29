@@ -1,0 +1,22 @@
+version: '3'
+services:
+  pub-sub-api:
+    build: .
+    environment:
+      - DATABASE_HOST=db
+      - REDIS_URL=redis://cache
+      - LISTENER_SOURCE=./input/logs
+      - LISTENER_DESTINATION=./output/logs
+    volumes:
+      - "./input/logs:/code/input/logs"
+      - "./output/logs:/code/output/logs"
+    links:
+      - "pub-sub-database:db"
+      - "pub-sub-cache:cache"
+    depends_on:
+      - pub-sub-database
+      - pub-sub-cache
+  pub-sub-database:
+    image: mongo
+  pub-sub-cache:
+    image: redis

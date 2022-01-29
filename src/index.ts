@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+require('dotenv').config();
 import {Container} from 'inversify';
 import {bindings} from './inversify.config';
 import {TransformerService} from './services';

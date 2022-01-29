@@ -1,6 +1,7 @@
 node_modules
 /dist
 /samples
+/data
 /input
 /output
 .env

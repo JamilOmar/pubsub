@@ -11,16 +11,18 @@ import {WritterService} from './services/writter/writter.service';
 import {UserStrategy} from './services/transformer/strategies';
 import {WatcherService} from './services/watcher';
 import {watcherBootstrap} from './file';
+import {CONFIG} from './config';
 
 export const bindings = new AsyncContainerModule(async bind => {
-  await getDbConnection();
+  bind(TYPES.Config).toConstantValue(CONFIG);
+  await getDbConnection(CONFIG.db);
   bind<Repository<User>>(TYPES.UserRepository)
     .toDynamicValue(() => {
       return getRepository();
     })
     .inRequestScope();
-  bind<BusService>(TYPES.BusService).toConstantValue(await busBootstrap());
-  bind<WatcherService>(TYPES.WatcherService).toConstantValue(await watcherBootstrap());
+  bind<BusService>(TYPES.BusService).toConstantValue(await busBootstrap(CONFIG.redis));
+  bind<WatcherService>(TYPES.WatcherService).toConstantValue(await watcherBootstrap(CONFIG.listener));
   bind<IWritterStrategy>(TYPES.WritterStrategy)
     .to(ConsoleStrategy)
     .inSingletonScope();

@@ -1,5 +1,5 @@
 const TYPES = {
-  DBClient: Symbol.for('DBClient'),
+  Config: Symbol.for('PubSubConfig'),
   UserService: Symbol.for('UserService'),
   TransformerStrategy: Symbol.for('TransformerStrategy'),
   TransformerService: Symbol.for('TransformerService'),
