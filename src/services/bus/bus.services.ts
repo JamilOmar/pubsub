@@ -2,6 +2,7 @@
 import { createClient } from 'redis';
 import EventEmitter = require('events');
 import { injectable } from 'inversify';
+import { IPublishMessage } from '../../interfaces';
 const CHANNEL = 'pub-sub-demo';
 @injectable()
 export class BusService extends EventEmitter{
@@ -23,7 +24,7 @@ export class BusService extends EventEmitter{
             this.emit('onMessage', JSON.parse(message))   
         });
     }
-    async publish(message: {type:string, data:any}){
+    async publish(message:IPublishMessage ){
         await this.publisher.publish(CHANNEL, JSON.stringify(message));
     }
 }

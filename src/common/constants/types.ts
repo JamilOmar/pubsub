@@ -5,7 +5,9 @@ const TYPES = {
     TransformerService: Symbol.for('TransformerService'),
     BusService: Symbol.for('BusService'),
     WritterService: Symbol.for('WritterService'),
-    WritterStrategy:Symbol.for('WritterStrategy')
+    WatcherService: Symbol.for('WatcherService'),
+    WritterStrategy:Symbol.for('WritterStrategy'),
+    UserRepository: Symbol.for("UserRepository")
 };
 
 export default TYPES;

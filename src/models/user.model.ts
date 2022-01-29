@@ -1,10 +1,20 @@
 import { injectable } from 'inversify';
 import { IUser } from '../interfaces';
-@injectable()
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  PrimaryColumn,
+  ObjectIdColumn,
+  ObjectID
+} from "typeorm";
+
+@Entity()
 export class User implements IUser {
-  constructor(
-    public email: string,
-    public name: string,
-    public _id?: string
-  ) { }
+  @ObjectIdColumn() 
+  public id: ObjectID; 
+  @Column()
+  public email: string;
+  @Column()
+  public total!: number;
 }
