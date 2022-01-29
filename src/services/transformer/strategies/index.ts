@@ -1,1 +1,1 @@
-export * from './user.strategy'
+export * from './user.strategy';

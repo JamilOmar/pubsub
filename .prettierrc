@@ -1,0 +1,18 @@
+  
+{
+  "bracketSpacing": false,
+  "singleQuote": true,
+  "printWidth": 130,
+  "proseWrap": "preserve",
+  "trailingComma": "none",
+  "parser": "typescript",
+  "overrides": [
+    {
+      "files": "**/*.md",
+      "options": {
+        "parser": "markdown",
+        "proseWrap": "always"
+      }
+    }
+  ]
+}

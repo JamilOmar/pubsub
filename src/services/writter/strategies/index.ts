@@ -1,1 +1,1 @@
-export * from './console.strategy'
+export * from './console.strategy';

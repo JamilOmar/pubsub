@@ -1,3 +1,3 @@
-export interface ITransformerStrategy{
-    getData(json:any): any;
+export interface ITransformerStrategy {
+  getData(json: any): any;
 }

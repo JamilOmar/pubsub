@@ -1,1 +1,1 @@
-export * from './transformer.service'
+export * from './transformer.service';

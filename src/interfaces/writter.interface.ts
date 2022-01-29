@@ -1,3 +1,3 @@
-export interface IWritterStrategy{
-    write(json:any): void;
+export interface IWritterStrategy {
+  write(json: any): void;
 }
